@@ -3,10 +3,10 @@ import { RoomContext } from "../../context/RoomContext";
 
 const Join: React.FC = () => {
 
-    const { socket } = useContext(RoomContext);
+    const { socket, me } = useContext(RoomContext);
 
     const joinRoom = () => {
-        socket.emit('create-room');
+        socket.emit('create-room', { peerId: me._id });
     }
 
     return (
